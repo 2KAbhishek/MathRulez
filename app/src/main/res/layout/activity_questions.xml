@@ -97,7 +97,7 @@
             android:padding="15dp"
             android:textColor="@android:color/white"
             android:textStyle="bold"
-            tools:text="Submit" />
+            android:text="Submit" />
 
     </LinearLayout>
 
