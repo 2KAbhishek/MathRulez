@@ -128,7 +128,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
         } else {
-            val question = mQuestionsList?.get(mCurPosition - 0)
+            val question = mQuestionsList?.get(mCurPosition - 1)
             if (question!!.correct != mSelectedOption) {
                 answerView(mSelectedOption, R.drawable.wrong_option_bg)
             }
