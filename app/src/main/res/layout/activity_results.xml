@@ -40,6 +40,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -50,22 +51,23 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/tv_score"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:gravity="center"
-                android:text="You Scored 14 out of 14"
+                android:text="You scored 14 out of 14"
                 android:textColor="@android:color/darker_gray"
                 android:textSize="12sp"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/btn_start"
+                android:id="@+id/btn_again"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:background="@color/design_default_color_primary"
-                android:text="Finish"
+                android:text="Play Again"
                 android:textColor="@android:color/white" />
 
         </LinearLayout>
