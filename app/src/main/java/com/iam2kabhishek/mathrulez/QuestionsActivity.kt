@@ -1,11 +1,11 @@
 package com.iam2kabhishek.mathrulez
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_questions.*
@@ -16,10 +16,14 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mQuestionsList: ArrayList<Question>? = null
     private var mSelectedOption: Int = 0
     private var mCorrectAnswers: Int = 0
+    private var mUserName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_questions)
+
+        mUserName = intent.getStringExtra(Constants.USER_NAME)
+
         mQuestionsList = Constants.getQuestions()
         setQuestion()
 
@@ -125,7 +129,12 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     setQuestion()
                 }
                 else -> {
-                    Toast.makeText(this, "Completed", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, Results::class.java)
+                    intent.putExtra(Constants.USER_NAME, mUserName)
+                    intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
+                    intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)
+                    startActivity(intent)
+                    finish()
                 }
             }
         } else {
