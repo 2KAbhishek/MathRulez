@@ -129,7 +129,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                     setQuestion()
                 }
                 else -> {
-                    val intent = Intent(this, Results::class.java)
+                    val intent = Intent(this, ResultsActivity::class.java)
                     intent.putExtra(Constants.USER_NAME, mUserName)
                     intent.putExtra(Constants.TOTAL_QUESTIONS, mQuestionsList!!.size)
                     intent.putExtra(Constants.CORRECT_ANSWERS, mCorrectAnswers)

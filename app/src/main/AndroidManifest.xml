@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathRulez">
         <activity
-            android:name=".Results"
+            android:name=".ResultsActivity"
             android:exported="false" />
         <activity
             android:name=".QuestionsActivity"

@@ -7,7 +7,7 @@
     android:background="@color/purple_500"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".Results">
+    tools:context=".ResultsActivity">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
