@@ -11,12 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MathRulez">
         <activity
+            android:name=".Results"
+            android:exported="false" />
+        <activity
             android:name=".QuestionsActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
