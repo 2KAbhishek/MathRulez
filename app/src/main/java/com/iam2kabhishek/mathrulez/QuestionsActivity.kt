@@ -27,11 +27,6 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         mQuestionsList = Constants.getQuestions()
         setQuestion()
 
-        tv_option_1.setOnClickListener(this)
-        tv_option_2.setOnClickListener(this)
-        tv_option_3.setOnClickListener(this)
-        tv_option_4.setOnClickListener(this)
-        tv_option_5.setOnClickListener(this)
         btn_submit.setOnClickListener(this)
     }
 
@@ -39,6 +34,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val question: Question = mQuestionsList!![mCurPosition - 1]
 
         defaultOptionsView()
+        enableOptions()
 
         if (mCurPosition == mQuestionsList!!.size) {
             "Finish".also { btn_submit.text = it }
@@ -145,6 +141,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 mCorrectAnswers++
             }
             answerView(question.correct, R.drawable.correct_option_bg)
+            disableOptions()
 
             if (mCurPosition == mQuestionsList!!.size) {
                 "Finish".also { btn_submit.text = it }
@@ -153,5 +150,21 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
             }
             mSelectedOption = -1
         }
+    }
+
+    private fun enableOptions() {
+        tv_option_1.setOnClickListener(this)
+        tv_option_2.setOnClickListener(this)
+        tv_option_3.setOnClickListener(this)
+        tv_option_4.setOnClickListener(this)
+        tv_option_5.setOnClickListener(this)
+    }
+
+    private fun disableOptions() {
+        tv_option_1.setOnClickListener(null)
+        tv_option_2.setOnClickListener(null)
+        tv_option_3.setOnClickListener(null)
+        tv_option_4.setOnClickListener(null)
+        tv_option_5.setOnClickListener(null)
     }
 }
