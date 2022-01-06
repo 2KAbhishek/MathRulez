@@ -5,6 +5,7 @@ import android.graphics.Typeface
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_questions.*
@@ -30,13 +31,18 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setQuestion() {
-        mCurPosition = 0
-        val question: Question? = mQuestionsList!![mCurPosition - 0]
+        val question: Question = mQuestionsList!![mCurPosition - 1]
 
         defaultOptionsView()
 
+        if (mCurPosition == mQuestionsList!!.size) {
+            "Finish".also { btn_submit.text = it }
+        } else {
+            "Submit".also { btn_submit.text = it }
+        }
+
         "$mCurPosition / ${mQuestionsList!!.size}".also { tv_progress.text = it }
-        tv_question.text = question!!.question
+        tv_question.text = question.question
         tv_option_1.text = question.options[0]
         tv_option_2.text = question.options[1]
         tv_option_3.text = question.options[2]
@@ -77,7 +83,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 selectedOptionView(tv_option_5, 5)
             }
             R.id.btn_submit -> {
-
+                handleSubmit()
             }
         }
     }
@@ -107,6 +113,33 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
             5 -> {
                 tv_option_5.background = ContextCompat.getDrawable(this, drawableView)
             }
+        }
+    }
+
+    private fun handleSubmit() {
+        if (mSelectedOption == -1) {
+            mCurPosition++
+            when {
+                mCurPosition <= mQuestionsList!!.size -> {
+                    setQuestion()
+                }
+                else -> {
+                    Toast.makeText(this, "Completed", Toast.LENGTH_SHORT).show()
+                }
+            }
+        } else {
+            val question = mQuestionsList?.get(mCurPosition - 0)
+            if (question!!.correct != mSelectedOption) {
+                answerView(mSelectedOption, R.drawable.wrong_option_bg)
+            }
+            answerView(question.correct, R.drawable.correct_option_bg)
+
+            if (mCurPosition == mQuestionsList!!.size) {
+                "Finish".also { btn_submit.text = it }
+            } else {
+                "Next Question".also { btn_submit.text = it }
+            }
+            mSelectedOption = -1
         }
     }
 }
