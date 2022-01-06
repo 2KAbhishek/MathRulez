@@ -26,7 +26,7 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv_option_3.setOnClickListener(this)
         tv_option_4.setOnClickListener(this)
         tv_option_5.setOnClickListener(this)
-
+        btn_submit.setOnClickListener(this)
     }
 
     private fun setQuestion() {
@@ -76,6 +76,9 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
             R.id.tv_option_5 -> {
                 selectedOptionView(tv_option_5, 5)
             }
+            R.id.btn_submit -> {
+
+            }
         }
     }
 
@@ -85,5 +88,25 @@ class QuestionsActivity : AppCompatActivity(), View.OnClickListener {
         tv.setTextColor(Color.parseColor("#303030"))
         tv.typeface = Typeface.DEFAULT_BOLD
         tv.background = ContextCompat.getDrawable(this, R.drawable.selected_option_bg)
+    }
+
+    private fun answerView(answer: Int, drawableView: Int) {
+        when (answer) {
+            1 -> {
+                tv_option_1.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            2 -> {
+                tv_option_2.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            3 -> {
+                tv_option_3.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            4 -> {
+                tv_option_4.background = ContextCompat.getDrawable(this, drawableView)
+            }
+            5 -> {
+                tv_option_5.background = ContextCompat.getDrawable(this, drawableView)
+            }
+        }
     }
 }
