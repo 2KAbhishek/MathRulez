@@ -1,4 +1,4 @@
-package com.iam2kabhishek.myapplication
+package com.iam2kabhishek.mathrulez
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

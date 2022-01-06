@@ -1,4 +1,4 @@
-package com.iam2kabhishek.myapplication
+package com.iam2kabhishek.mathrulez
 
 import org.junit.Test
 
