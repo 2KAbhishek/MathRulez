@@ -1,5 +1,6 @@
 package com.iam2kabhishek.mathrulez
 
+import android.content.ContentValues
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -13,6 +14,14 @@ class ResultsActivity : AppCompatActivity() {
         val userName = intent.getStringExtra(Constants.USER_NAME)
         val totalQuestions = intent.getIntExtra(Constants.TOTAL_QUESTIONS, 0)
         val correctAnswers = intent.getIntExtra(Constants.CORRECT_ANSWERS, 14)
+        val dbHelper = DbHelper(this)
+        val db = dbHelper.writableDatabase
+
+        val values = ContentValues().apply {
+            put("name", userName)
+            put("score", correctAnswers)
+        }
+        db?.insert("MathRulez", null, values)
 
         tv_user_name.text = userName
         "You scored $correctAnswers out of $totalQuestions".also { tv_score.text = it }
