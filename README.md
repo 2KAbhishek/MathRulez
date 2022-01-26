@@ -23,7 +23,7 @@
 <a href="https://github.com/2KAbhishek?tab=followers">
 <img alt="Followers" src="https://img.shields.io/github/followers/2kabhishek?color=222&style=plastic&label=Followers"> </a>
 
-<h3>Short sweet headline with 🎇🎉</h3>
+<h3>Teaches Math Rulez ♾️✅</h3>
 
 <figure>
   <img src= "https://raw.githubusercontent.com/2KAbhishek/MathRulez/main/images/screenshot.jpg" alt="MathRulez Demo" style="width:100%">
